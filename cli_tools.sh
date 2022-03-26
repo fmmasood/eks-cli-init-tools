@@ -26,7 +26,7 @@ source ~/.bash_profile
 # Install eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
-aws eks update-kubeconfig --name 'EKS-Lab'
+aws eks update-kubeconfig --name 'eksworkshop-eksctl'
 eksctl completion bash >> ~/.bash_completion
 . /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
@@ -38,8 +38,5 @@ echo "export ROLE_NAME=${ROLE_NAME}" | tee -a ~/.bash_profile
 #install helm chart 
 curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
-
 # install kubescape 
 curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash
-
-source ~/.bash_profile
