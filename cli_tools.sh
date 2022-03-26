@@ -33,3 +33,13 @@ eksctl completion bash >> ~/.bash_completion
 STACK_NAME=$(eksctl get nodegroup --cluster EKS-Lab -o json | jq -r '.[].StackName')
 ROLE_NAME=$(aws cloudformation describe-stack-resources --stack-name $STACK_NAME | jq -r '.StackResources[] | select(.ResourceType=="AWS::IAM::Role") | .PhysicalResourceId')
 echo "export ROLE_NAME=${ROLE_NAME}" | tee -a ~/.bash_profile
+
+
+#install helm chart 
+curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+
+# install kubescape 
+curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash
+
+source ~/.bash_profile
